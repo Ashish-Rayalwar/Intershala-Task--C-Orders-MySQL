@@ -2,6 +2,8 @@ const { data } = require("../data");
 const { db } = require("../database/db");
 
 const insertData = async (req, res) => {
+  // * Insert data into database table name orders
+
   try {
     for (const item of data) {
       const { title, description, createdAt } = item;
@@ -22,6 +24,7 @@ const insertData = async (req, res) => {
 };
 
 const getDataInPastWeek = async (req, res) => {
+  // * Get orders from table orders, created in last 7 days
   try {
     const query = "SELECT * FROM orders WHERE createdAt >= ?";
     const today = new Date();
